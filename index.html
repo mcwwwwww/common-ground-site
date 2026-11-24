@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Common Ground | Marketing for construction and SME businesses</title>
+<meta name="description" content="Common Ground helps UK construction and SME businesses win more work with websites, SEO and outreach.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0}
+  ::selection{background:#5FD3C8;color:#0E1A18}
+  [data-reveal]{transition:opacity .8s cubic-bezier(.22,.61,.21,1),transform .8s cubic-bezier(.22,.61,.21,1)}
+  [data-reveal].cg-hidden{opacity:0;transform:translateY(20px)}
+  input,textarea{font-family:inherit}
+  input::placeholder,textarea::placeholder{color:#9AA6A2}
+  @media(max-width:880px){
+    [data-desktop-nav]{display:none !important}
+    [data-burger]{display:inline-flex !important}
+  }
+  @media(min-width:881px){
+    [data-burger]{display:none !important}
+    [data-mobile-menu]{display:none !important}
+  }
+</style>
+</helmet>
+
+<div style="background:#F4F1EA;color:#1B2422;font-family:'Hanken Grotesk',system-ui,sans-serif;min-height:100vh;overflow-x:hidden;--cg-teal:{{ accentTeal }}">
+
+  <!-- ===== NAV ===== -->
+  <nav ref="{{ navRef }}" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,6vw,80px);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);transition:box-shadow .3s ease,background .3s ease">
+    <a href="#top" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1B2422">
+      <img src="assets/logo-mint.png" alt="Common Ground" style="width:46px;height:46px;border-radius:12px;object-fit:cover;display:block"/>
+      <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-.01em">Common Ground</span>
+    </a>
+    <div data-desktop-nav style="display:flex;align-items:center;gap:clamp(18px,2.4vw,34px)">
+      <a href="#services" style="text-decoration:none;color:#414B48;font-size:.96rem;font-weight:500" style-hover="color:#1B2422">Services</a>
+      <a href="#work" style="text-decoration:none;color:#414B48;font-size:.96rem;font-weight:500" style-hover="color:#1B2422">Work</a>
+      <a href="#about" style="text-decoration:none;color:#414B48;font-size:.96rem;font-weight:500" style-hover="color:#1B2422">About</a>
+      <a href="#contact" style="text-decoration:none;color:#414B48;font-size:.96rem;font-weight:500" style-hover="color:#1B2422">Contact</a>
+      <a href="#contact" style="text-decoration:none;background:#3FC2B7;color:#06403B;font-weight:700;font-size:.92rem;padding:11px 19px;border-radius:999px" style-hover="background:#33B0A5">Free audit</a>
+    </div>
+    <button data-burger onClick="{{ toggleMenu }}" aria-label="Menu" style="display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(27,36,34,.14);background:#EAF6F2;border-radius:11px;cursor:pointer">
+      <span style="display:block;width:18px;height:11px;position:relative">
+        <span style="position:absolute;left:0;top:0;width:18px;height:1.8px;background:#1B2422"></span>
+        <span style="position:absolute;left:0;top:5px;width:18px;height:1.8px;background:#1B2422"></span>
+        <span style="position:absolute;left:0;top:10px;width:18px;height:1.8px;background:#1B2422"></span>
+      </span>
+    </button>
+  </nav>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div data-mobile-menu style="position:sticky;top:74px;z-index:49;margin:0 clamp(20px,6vw,80px);background:#EAF6F2;border:1px solid rgba(27,36,34,.1);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:2px;box-shadow:0 14px 40px rgba(27,36,34,.1)">
+      <a href="#services" onClick="{{ closeMenu }}" style="text-decoration:none;color:#1B2422;font-weight:500;padding:13px 14px;border-radius:10px">Services</a>
+      <a href="#work" onClick="{{ closeMenu }}" style="text-decoration:none;color:#1B2422;font-weight:500;padding:13px 14px;border-radius:10px">Work</a>
+      <a href="#about" onClick="{{ closeMenu }}" style="text-decoration:none;color:#1B2422;font-weight:500;padding:13px 14px;border-radius:10px">About</a>
+      <a href="#contact" onClick="{{ closeMenu }}" style="text-decoration:none;color:#1B2422;font-weight:500;padding:13px 14px;border-radius:10px">Contact</a>
+      <a href="#contact" onClick="{{ closeMenu }}" style="text-decoration:none;text-align:center;background:#3FC2B7;color:#06403B;font-weight:700;padding:14px;border-radius:11px;margin-top:4px">Book your free audit</a>
+    </div>
+  </sc-if>
+
+  <!-- ===== HERO ===== -->
+  <header id="top" style="padding:clamp(48px,8vw,100px) clamp(20px,6vw,80px) clamp(56px,8vw,96px);text-align:center">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center">
+      <div data-reveal style="display:inline-flex;align-items:center;gap:9px;font-family:'Schibsted Grotesk',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cg-teal,#119488);margin-bottom:24px">
+        <span style="width:22px;height:1.6px;background:var(--cg-teal,#119488);display:inline-block"></span>
+        Marketing for construction &amp; SMEs
+        <span style="width:22px;height:1.6px;background:var(--cg-teal,#119488);display:inline-block"></span>
+      </div>
+      <h1 data-reveal style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:clamp(2.4rem,5.6vw,4.3rem);line-height:1.05;letter-spacing:-.025em;margin:0;text-wrap:balance">We help construction and SME businesses get leads, build visibility and earn trust.</h1>
+      <p data-reveal style="font-size:clamp(1.1rem,1.7vw,1.32rem);line-height:1.55;color:#4A544F;margin:24px 0 0;max-width:34ch">Finding common ground between brands and people.</p>
+      <div data-reveal style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px">
+        <a href="#contact" style="text-decoration:none;background:#3FC2B7;color:#06403B;font-weight:700;font-size:1rem;padding:16px 28px;border-radius:999px;box-shadow:0 10px 26px rgba(63,194,183,.4)" style-hover="background:#33B0A5">Book your free marketing audit</a>
+        <a href="#work" style="text-decoration:none;background:transparent;color:#1B2422;font-weight:600;font-size:1rem;padding:16px 28px;border-radius:999px;border:1.5px solid rgba(27,36,34,.2)" style-hover="border-color:#1B2422;background:rgba(27,36,34,.03)">View my work</a>
+      </div>
+      <div data-reveal style="display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;margin-top:40px;color:#5B6560;font-size:.92rem">
+        <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:#5FD3C8"></span>15+ years in digital marketing</span>
+        <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:#5FD3C8"></span>Specialists in geoengineering</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" style="scroll-margin-top:88px;padding:clamp(64px,8vw,112px) clamp(20px,6vw,80px);background:#EAF6F2;border-top:1px solid rgba(27,36,34,.06);border-bottom:1px solid rgba(27,36,34,.06)">
+    <div style="max-width:1100px;margin:0 auto;text-align:center">
+      <div data-reveal style="display:inline-flex;align-items:center;gap:9px;font-family:'Schibsted Grotesk',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cg-teal,#119488);margin-bottom:16px">
+        <span style="width:22px;height:1.6px;background:var(--cg-teal,#119488)"></span>Services<span style="width:22px;height:1.6px;background:var(--cg-teal,#119488)"></span>
+      </div>
+      <h2 data-reveal style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.1;letter-spacing:-.02em;margin:0 auto 14px;max-width:18ch">What I can help with</h2>
+      <p data-reveal style="font-size:1.06rem;line-height:1.6;color:#5B6560;margin:0 auto 48px;max-width:52ch">Practical marketing built around how your business actually works, not a one-size-fits-all package.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:clamp(14px,1.8vw,20px);text-align:center">
+
+        <div data-reveal style="background:#fff;border:1px solid rgba(27,36,34,.08);border-radius:18px;padding:30px 24px;display:flex;flex-direction:column;align-items:center;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(14,140,128,.35);box-shadow:0 16px 40px rgba(27,36,34,.08)">
+          <div style="width:48px;height:48px;border-radius:14px;background:#D7EFE9;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+            <svg width="24" height="24" viewBox="0 0 26 26" fill="none" stroke="var(--cg-teal,#119488)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h20l-7 8v6l-6 3v-9z"/></svg>
+          </div>
+          <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:1.12rem;margin:0 0 8px">Lead generation</h3>
+          <p style="margin:0;font-size:.96rem;line-height:1.55;color:#5B6560">Bring in steady enquiries from the right kind of customers.</p>
+        </div>
+
+        <div data-reveal style="background:#fff;border:1px solid rgba(27,36,34,.08);border-radius:18px;padding:30px 24px;display:flex;flex-direction:column;align-items:center;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(14,140,128,.35);box-shadow:0 16px 40px rgba(27,36,34,.08)">
+          <div style="width:48px;height:48px;border-radius:14px;background:#D7EFE9;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+            <svg width="24" height="24" viewBox="0 0 26 26" fill="none" stroke="var(--cg-teal,#119488)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="13" r="9"/><circle cx="13" cy="13" r="4"/><circle cx="13" cy="13" r="1.1" fill="var(--cg-teal,#119488)" stroke="none"/></svg>
+          </div>
+          <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:1.12rem;margin:0 0 8px">Google Ads</h3>
+          <p style="margin:0;font-size:.96rem;line-height:1.55;color:#5B6560">Get in front of people searching for exactly what you do.</p>
+        </div>
+
+        <div data-reveal style="background:#fff;border:1px solid rgba(27,36,34,.08);border-radius:18px;padding:30px 24px;display:flex;flex-direction:column;align-items:center;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(14,140,128,.35);box-shadow:0 16px 40px rgba(27,36,34,.08)">
+          <div style="width:48px;height:48px;border-radius:14px;background:#D7EFE9;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+            <svg width="24" height="24" viewBox="0 0 26 26" fill="none" stroke="var(--cg-teal,#119488)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="22" y2="22"/></svg>
+          </div>
+          <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:1.12rem;margin:0 0 8px">SEO</h3>
+          <p style="margin:0;font-size:.96rem;line-height:1.55;color:#5B6560">Help your website show up higher on Google over time.</p>
+        </div>
+
+        <div data-reveal style="background:#fff;border:1px solid rgba(27,36,34,.08);border-radius:18px;padding:30px 24px;display:flex;flex-direction:column;align-items:center;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(14,140,128,.35);box-shadow:0 16px 40px rgba(27,36,34,.08)">
+          <div style="width:48px;height:48px;border-radius:14px;background:#D7EFE9;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+            <svg width="24" height="24" viewBox="0 0 26 26" fill="none" stroke="var(--cg-teal,#119488)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="2.3"/><circle cx="19" cy="7" r="2.3"/><circle cx="13" cy="18" r="2.3"/><line x1="9" y1="8.6" x2="17" y2="7.4"/><line x1="7.8" y1="10" x2="12" y2="16"/><line x1="18" y1="9" x2="14" y2="16"/></svg>
+          </div>
+          <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:1.12rem;margin:0 0 8px">AI visibility</h3>
+          <p style="margin:0;font-size:.96rem;line-height:1.55;color:#5B6560">Make sure tools like ChatGPT find and recommend you.</p>
+        </div>
+
+        <div data-reveal style="background:#fff;border:1px solid rgba(27,36,34,.08);border-radius:18px;padding:30px 24px;display:flex;flex-direction:column;align-items:center;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(14,140,128,.35);box-shadow:0 16px 40px rgba(27,36,34,.08)">
+          <div style="width:48px;height:48px;border-radius:14px;background:#D7EFE9;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+            <svg width="24" height="24" viewBox="0 0 26 26" fill="none" stroke="var(--cg-teal,#119488)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21l1.8-5.6L17 5.2l3.8 3.8L10.6 19.2z"/><line x1="14.2" y1="8" x2="18" y2="11.8"/></svg>
+          </div>
+          <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:1.12rem;margin:0 0 8px">Copywriting</h3>
+          <p style="margin:0;font-size:.96rem;line-height:1.55;color:#5B6560">Clear words for your site, ads and emails that sound like you.</p>
+        </div>
+
+        <div data-reveal style="background:#fff;border:1px solid rgba(27,36,34,.08);border-radius:18px;padding:30px 24px;display:flex;flex-direction:column;align-items:center;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(14,140,128,.35);box-shadow:0 16px 40px rgba(27,36,34,.08)">
+          <div style="width:48px;height:48px;border-radius:14px;background:#D7EFE9;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+            <svg width="24" height="24" viewBox="0 0 26 26" fill="none" stroke="var(--cg-teal,#119488)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="14" height="20" rx="2.4"/><line x1="9.5" y1="9" x2="16.5" y2="9"/><line x1="9.5" y1="13" x2="16.5" y2="13"/><line x1="9.5" y1="17" x2="13" y2="17"/></svg>
+          </div>
+          <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:1.12rem;margin:0 0 8px">Content writing</h3>
+          <p style="margin:0;font-size:.96rem;line-height:1.55;color:#5B6560">Helpful articles and guides that bring people to your site.</p>
+        </div>
+
+        <div data-reveal style="background:#fff;border:1px solid rgba(27,36,34,.08);border-radius:18px;padding:30px 24px;display:flex;flex-direction:column;align-items:center;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(14,140,128,.35);box-shadow:0 16px 40px rgba(27,36,34,.08)">
+          <div style="width:48px;height:48px;border-radius:14px;background:#D7EFE9;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+            <svg width="24" height="24" viewBox="0 0 26 26" fill="none" stroke="var(--cg-teal,#119488)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h16v11h-9l-5 4v-4H5z"/><circle cx="10" cy="11.4" r="1" fill="var(--cg-teal,#119488)" stroke="none"/><circle cx="13" cy="11.4" r="1" fill="var(--cg-teal,#119488)" stroke="none"/><circle cx="16" cy="11.4" r="1" fill="var(--cg-teal,#119488)" stroke="none"/></svg>
+          </div>
+          <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:1.12rem;margin:0 0 8px">Social media</h3>
+          <p style="margin:0;font-size:.96rem;line-height:1.55;color:#5B6560">Keep your business visible where your customers already are.</p>
+        </div>
+
+        <div data-reveal style="background:#fff;border:1px solid rgba(27,36,34,.08);border-radius:18px;padding:30px 24px;display:flex;flex-direction:column;align-items:center;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(14,140,128,.35);box-shadow:0 16px 40px rgba(27,36,34,.08)">
+          <div style="width:48px;height:48px;border-radius:14px;background:#D7EFE9;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+            <svg width="24" height="24" viewBox="0 0 26 26" fill="none" stroke="var(--cg-teal,#119488)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4L11 14"/><path d="M22 4l-7 18-4-8-8-4z"/></svg>
+          </div>
+          <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:1.12rem;margin:0 0 8px">Email marketing &amp; cold outreach</h3>
+          <p style="margin:0;font-size:.96rem;line-height:1.55;color:#5B6560">Reach the right people directly and turn quiet inboxes into new work.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <section id="work" style="scroll-margin-top:88px;padding:clamp(64px,8vw,112px) clamp(20px,6vw,80px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal style="display:inline-flex;align-items:center;gap:9px;font-family:'Schibsted Grotesk',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cg-teal,#119488);margin-bottom:16px">
+        <span style="width:22px;height:1.6px;background:var(--cg-teal,#119488)"></span>Selected work
+      </div>
+      <h2 data-reveal style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.1;letter-spacing:-.02em;margin:0 0 44px;max-width:18ch">Recent projects</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(20px,2.6vw,30px)">
+
+        <article data-reveal style="background:#fff;border:1px solid rgba(27,36,34,.08);border-radius:20px;overflow:hidden">
+          <div style="aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid rgba(27,36,34,.06)">
+            <img src="assets/geoenviro.png" alt="GeoEnviro Solutions website" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block"/>
+          </div>
+          <div style="padding:28px">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+              <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1.4rem;margin:0">GeoEnviro Solutions</h3>
+              <a href="https://geoenvirosolutions.com" target="_blank" rel="noopener" style="text-decoration:none;font-size:.86rem;font-weight:600;color:var(--cg-teal,#119488)" style-hover="text-decoration:underline">geoenvirosolutions.com &#8599;</a>
+            </div>
+            <p style="margin:0 0 20px;font-size:1rem;line-height:1.6;color:#4A544F">Nationwide site investigation specialists, with geotechnical and geoenvironmental expertise for construction, infrastructure and redevelopment projects.</p>
+            <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(27,36,34,.08);padding-top:18px">
+              <div style="display:flex;gap:14px"><span style="flex:0 0 84px;font-family:'Schibsted Grotesk',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cg-teal,#119488);padding-top:2px">My role</span><span style="font-size:.96rem;line-height:1.5;color:#414B48">Strategy, SEO, content and lead generation</span></div>
+              <div style="display:flex;gap:14px"><span style="flex:0 0 84px;font-family:'Schibsted Grotesk',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cg-teal,#119488);padding-top:2px">Results</span><span style="font-size:.96rem;line-height:1.5;color:#414B48">Ongoing &mdash; steadier, better-qualified enquiries</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article data-reveal style="background:#fff;border:1px solid rgba(27,36,34,.08);border-radius:20px;overflow:hidden">
+          <div style="aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid rgba(27,36,34,.06)">
+            <img src="assets/ecoheating.png" alt="Eco Heating Specialists website" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block"/>
+          </div>
+          <div style="padding:28px">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+              <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1.4rem;margin:0">Eco Heating Specialists</h3>
+              <a href="https://ecoheatingspecialists.co.uk" target="_blank" rel="noopener" style="text-decoration:none;font-size:.86rem;font-weight:600;color:var(--cg-teal,#119488)" style-hover="text-decoration:underline">ecoheatingspecialists.co.uk &#8599;</a>
+            </div>
+            <p style="margin:0 0 20px;font-size:1rem;line-height:1.6;color:#4A544F">Energy-efficient air source heat pump installation and renewable heating solutions for homes and businesses across the UK.</p>
+            <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(27,36,34,.08);padding-top:18px">
+              <div style="display:flex;gap:14px"><span style="flex:0 0 84px;font-family:'Schibsted Grotesk',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cg-teal,#119488);padding-top:2px">My role</span><span style="font-size:.96rem;line-height:1.5;color:#414B48">Website content, SEO and Google Ads</span></div>
+              <div style="display:flex;gap:14px"><span style="flex:0 0 84px;font-family:'Schibsted Grotesk',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cg-teal,#119488);padding-top:2px">Results</span><span style="font-size:.96rem;line-height:1.5;color:#414B48">Coming soon</span></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" style="scroll-margin-top:88px;padding:clamp(64px,8vw,112px) clamp(20px,6vw,80px);background:#EAF6F2;border-top:1px solid rgba(27,36,34,.06);border-bottom:1px solid rgba(27,36,34,.06)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="max-width:820px">
+        <div data-reveal style="display:inline-flex;align-items:center;gap:9px;font-family:'Schibsted Grotesk',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cg-teal,#119488);margin-bottom:16px">
+          <span style="width:22px;height:1.6px;background:var(--cg-teal,#119488)"></span>About
+        </div>
+        <h2 data-reveal style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.1;letter-spacing:-.02em;margin:0 0 22px">Hi, we're Rob and Petronella.</h2>
+        <div data-reveal style="font-size:1.08rem;line-height:1.72;color:#414B48;display:flex;flex-direction:column;gap:18px;max-width:64ch">
+          <p style="margin:0">Common Ground is run by Rob Lewis and Petronella. Petronella has worked in digital marketing for over 15 years. Rob brings a long history in the geoengineering and construction sector, including his work with GeoEnviro.</p>
+          <p style="margin:0">Between us we've spent a lot of time on construction sites and around engineering projects, so we understand how these businesses really work and the problems they face.</p>
+          <p style="margin:0">We both kept seeing the same thing. A lot of companies were paying for marketing that didn't work, often from big providers who don't understand the industry.</p>
+          <p style="margin:0">So that's what we do now. We work closely with each business to help them get seen, build trust and bring in the right kind of leads, with simple, honest marketing that makes sense.</p>
+        </div>
+      </div>
+      <figure data-reveal style="margin:clamp(36px,5vw,52px) 0 0;border-radius:20px;overflow:hidden;border:1px solid rgba(14,140,128,.18);background:#fff">
+        <img src="assets/team.png" alt="Petronella, Rob and the wider GeoEnviro team on site" style="width:100%;height:auto;display:block"/>
+        <figcaption style="font-size:.9rem;color:#5B6560;padding:16px 20px;border-top:1px solid rgba(27,36,34,.06)">On site with the GeoEnviro team &mdash; the people behind the work.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <sc-if value="{{ showTestimonials }}" hint-placeholder-val="{{ true }}">
+    <section id="testimonials" style="scroll-margin-top:88px;padding:clamp(64px,8vw,112px) clamp(20px,6vw,80px)">
+      <div style="max-width:1180px;margin:0 auto;text-align:center">
+        <div data-reveal style="display:inline-flex;align-items:center;gap:9px;font-family:'Schibsted Grotesk',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cg-teal,#119488);margin-bottom:16px">
+          <span style="width:22px;height:1.6px;background:var(--cg-teal,#119488)"></span>Testimonials<span style="width:22px;height:1.6px;background:var(--cg-teal,#119488)"></span>
+        </div>
+        <h2 data-reveal style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.1;letter-spacing:-.02em;margin:0 auto 36px;max-width:16ch">Kind words from clients</h2>
+        <div data-reveal style="max-width:640px;margin:0 auto;background:#EAF6F2;border:1px dashed rgba(14,140,128,.3);border-radius:20px;padding:clamp(36px,6vw,56px) 28px">
+          <span style="font-family:'Schibsted Grotesk',sans-serif;font-size:3rem;line-height:1;color:#5FD3C8;display:block;margin-bottom:10px">&ldquo;</span>
+          <p style="margin:0;font-size:1.1rem;line-height:1.6;color:#5B6560">Client testimonials will appear here soon. Send them over and we'll add them straight in.</p>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section style="padding:clamp(24px,5vw,56px) clamp(20px,6vw,80px)">
+    <div data-reveal style="max-width:1180px;margin:0 auto;background:#3FC2B7;border-radius:28px;padding:clamp(48px,7vw,88px) clamp(28px,5vw,72px);text-align:center;position:relative;overflow:hidden">
+      <div style="position:absolute;left:-60px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:#0B4A44;opacity:.08;filter:blur(10px)"></div>
+      <div style="position:absolute;right:-40px;top:-90px;width:220px;height:220px;border-radius:50%;background:#0E1A18;opacity:.1"></div>
+      <div style="position:relative;z-index:1">
+        <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.02em;color:#06403B;margin:0 auto;max-width:18ch;text-wrap:balance">Ready to grow your business?</h2>
+        <p style="color:rgba(6,64,59,.82);font-size:1.1rem;line-height:1.5;margin:20px auto 34px;max-width:42ch">Book a free marketing audit and we'll show you where the easy wins are.</p>
+        <a href="#contact" style="display:inline-block;text-decoration:none;background:#fff;color:#0B4A44;font-weight:700;font-size:1.05rem;padding:17px 34px;border-radius:999px" style-hover="background:#F4F1EA">Book your free marketing audit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" style="scroll-margin-top:88px;padding:clamp(64px,8vw,112px) clamp(20px,6vw,80px)">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:flex-start">
+      <div style="flex:1 1 320px;min-width:280px">
+        <div data-reveal style="display:inline-flex;align-items:center;gap:9px;font-family:'Schibsted Grotesk',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cg-teal,#119488);margin-bottom:16px">
+          <span style="width:22px;height:1.6px;background:var(--cg-teal,#119488)"></span>Contact
+        </div>
+        <h2 data-reveal style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.1;letter-spacing:-.02em;margin:0 0 18px;max-width:16ch">Let's find some common ground</h2>
+        <p data-reveal style="font-size:1.06rem;line-height:1.65;color:#4A544F;margin:0;max-width:42ch">Tell us a little about your business and what you'd like to improve. We'll get back to you within a couple of working days.</p>
+      </div>
+
+      <div data-reveal style="flex:1.2 1 380px;min-width:300px">
+        <form action="https://formspree.io/f/mbdvakrk" method="POST" style="background:#EAF6F2;border:1px solid rgba(27,36,34,.08);border-radius:22px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;flex-wrap:wrap;gap:18px">
+            <label style="flex:1 1 180px;display:flex;flex-direction:column;gap:8px;font-size:.86rem;font-weight:600;color:#3A433F">Name
+              <input name="name" type="text" required placeholder="Your name" style="border:1px solid rgba(27,36,34,.14);background:#fff;border-radius:11px;padding:13px 14px;font-size:1rem;color:#1B2422;outline:none" style-focus="border-color:var(--cg-teal,#119488);box-shadow:0 0 0 3px rgba(14,140,128,.12)"/>
+            </label>
+            <label style="flex:1 1 180px;display:flex;flex-direction:column;gap:8px;font-size:.86rem;font-weight:600;color:#3A433F">Company
+              <input name="company" type="text" placeholder="Your company" style="border:1px solid rgba(27,36,34,.14);background:#fff;border-radius:11px;padding:13px 14px;font-size:1rem;color:#1B2422;outline:none" style-focus="border-color:var(--cg-teal,#119488);box-shadow:0 0 0 3px rgba(14,140,128,.12)"/>
+            </label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:.86rem;font-weight:600;color:#3A433F">Email
+            <input name="email" type="email" required placeholder="you@company.co.uk" style="border:1px solid rgba(27,36,34,.14);background:#fff;border-radius:11px;padding:13px 14px;font-size:1rem;color:#1B2422;outline:none" style-focus="border-color:var(--cg-teal,#119488);box-shadow:0 0 0 3px rgba(14,140,128,.12)"/>
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:.86rem;font-weight:600;color:#3A433F">How can we help you? Please share what you are struggling with.
+            <textarea name="message" rows="4" required placeholder="Tell us a bit about what you'd like to improve" style="border:1px solid rgba(27,36,34,.14);background:#fff;border-radius:11px;padding:13px 14px;font-size:1rem;color:#1B2422;outline:none;resize:vertical;min-height:120px" style-focus="border-color:var(--cg-teal,#119488);box-shadow:0 0 0 3px rgba(14,140,128,.12)"></textarea>
+          </label>
+          <button type="submit" style="background:#3FC2B7;color:#06403B;font-weight:700;font-size:1rem;border:none;padding:16px;border-radius:999px;cursor:pointer;font-family:inherit" style-hover="background:#33B0A5">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="background:#14201E;color:#B9C4C0;padding:clamp(48px,6vw,72px) clamp(20px,6vw,80px) 34px">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)">
+        <div style="max-width:340px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+            <img src="assets/logo-mint.png" alt="Common Ground" style="width:48px;height:48px;border-radius:12px;object-fit:cover;display:block"/>
+            <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#fff">Common Ground</span>
+          </div>
+          <p style="margin:0;font-size:.95rem;line-height:1.6;color:#8F9C97">Honest, practical marketing for construction and SME businesses.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <span style="font-family:'Schibsted Grotesk',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6E7B77;margin-bottom:3px">Explore</span>
+          <a href="#services" style="text-decoration:none;color:#B9C4C0;font-size:.95rem" style-hover="color:#fff">Services</a>
+          <a href="#work" style="text-decoration:none;color:#B9C4C0;font-size:.95rem" style-hover="color:#fff">Work</a>
+          <a href="#about" style="text-decoration:none;color:#B9C4C0;font-size:.95rem" style-hover="color:#fff">About</a>
+          <a href="#contact" style="text-decoration:none;color:#B9C4C0;font-size:.95rem" style-hover="color:#fff">Contact</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;padding-top:24px;font-size:.86rem;color:#6E7B77">
+        <div style="display:flex;gap:20px;align-items:center">
+          <span>&copy; 2026 Common Ground. All rights reserved.</span>
+          <a href="#" style="text-decoration:none;color:#6E7B77" style-hover="color:#fff">Privacy Policy</a>
+        </div>
+        <span>commongroundmarketing.co.uk</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#119488&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#119488&quot;,&quot;#0E8377&quot;,&quot;#15A89B&quot;,&quot;#1FA89E&quot;],&quot;section&quot;:&quot;Brand&quot;},&quot;showTestimonials&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;},&quot;subtleAnimations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { menuOpen: false };
+  navRef = React.createRef();
+
+  toggle = () => this.setState(s => ({ menuOpen: !s.menuOpen }));
+  close = () => this.setState({ menuOpen: false });
+
+  componentDidMount() {
+    const nav = this.navRef.current;
+    const onScroll = () => {
+      if (!nav) return;
+      if (window.scrollY > 12) {
+        nav.style.background = 'rgba(244,241,234,.82)';
+        nav.style.boxShadow = '0 1px 0 rgba(27,36,34,.07), 0 10px 30px rgba(27,36,34,.05)';
+      } else {
+        nav.style.background = 'rgba(244,241,234,0)';
+        nav.style.boxShadow = 'none';
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    this._onScroll = onScroll;
+
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const animate = this.props.subtleAnimations !== false;
+    if (!animate || !('IntersectionObserver' in window)) return; // content stays visible by default
+    els.forEach(e => e.classList.add('cg-hidden'));
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) { en.target.classList.remove('cg-hidden'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(e => io.observe(e));
+      this._io = io;
+    }));
+    this._fallback = setTimeout(() => els.forEach(e => e.classList.remove('cg-hidden')), 2500);
+  }
+
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+    clearTimeout(this._fallback);
+  }
+
+  renderVals() {
+    return {
+      menuOpen: this.state.menuOpen,
+      toggleMenu: this.toggle,
+      closeMenu: this.close,
+      navRef: this.navRef,
+      accentTeal: this.props.accentColor ?? '#119488',
+      showTestimonials: this.props.showTestimonials !== false,
+    };
+  }
+}
+</script>
+</body>
+</html>
